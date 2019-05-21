@@ -13,7 +13,7 @@ router.post('/upload', async function (ctx) {
     reader.pipe(writer);
 
     const data = {
-        uri: `http://${ip}/images/${file.name}`
+        url: `http://${ip}/images/${file.name}`
     };
   ctx.response.body = db.success(data);
 })
