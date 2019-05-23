@@ -16,9 +16,10 @@ module.exports = {
         update: 'update farm set farm_name=?, stall_num=?, image=?, address=?, temp_thres=?, humi_thres=?, illum_thres=?, amm_thres=?, h2s_thres=?, co2_thres=? where id=?',
         delete: 'delete from farm where id=?',
         list: 'select * from farm',
-        getById: 'select * from farm where id=?'
+        getById: 'select * from farm where id=? and create_time'
     },
     env: {
-        list: 'select * from env where farm_id=?'
+        list: 'select * from env where farm_id=? and DATE_FORMAT(update_time,"%Y-%m-%d")=?',
+        add: 'insert into env (farm_id, temperature, humidity, illuminance, ammonia, h2s, co2) values (?,?,?,?,?,?,?)'
     }
 }

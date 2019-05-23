@@ -55,8 +55,8 @@ router.post('/info', async function (ctx) {
 })
 
 router.post('/env', async function (ctx) {
-    const { id } = ctx.request.body;
-    const {err, results} = await db.query(env.list, [id]);
+    const { id, date } = ctx.request.body;
+    const {err, results} = await db.query(env.list, [id, date]);
     if(err) {
         ctx.response.body = db.error('数据加载失败');
         return;
