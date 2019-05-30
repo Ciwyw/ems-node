@@ -1,6 +1,6 @@
 module.exports = {
     user: {
-        login: 'select * from user where user_name=? and password=? and role=?',
+        login: 'select * from user where phone_number=? and password=? and role=?',
         getById: 'select * from user where id=?',
         update: 'update user set user_name=?, sex=?, phone_number=?, farm_id=?, farm_name=? where id=?',
         updateName: 'update user set user_name=? where id=?',

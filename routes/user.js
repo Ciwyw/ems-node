@@ -5,8 +5,8 @@ const { user } = require('../db/sql');
 router.prefix('/user');
 
 router.post('/login', async function (ctx) {
-  const { name, pwd, role } = ctx.request.body;
-  const {err, results} = await db.query(user.login, [name, pwd, parseInt(role)]);
+  const { mobile, pwd, role } = ctx.request.body;
+  const {err, results} = await db.query(user.login, [mobile, pwd, parseInt(role)]);
 
   if(err) {
     ctx.response.body = db.error('登录失败,请稍后重试');
@@ -14,7 +14,7 @@ router.post('/login', async function (ctx) {
   }
 
   if(results.length === 0) {
-    ctx.response.body = db.error('用户名或密码不正确');
+    ctx.response.body = db.error('手机号或密码不正确');
     return;
   }
 
